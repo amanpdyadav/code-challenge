@@ -1,4 +1,5 @@
 import * as express from 'express';
+import { CodeChallenge } from './code-challange';
 
 const app = express();
 app.use((req, res, next) => {
@@ -8,6 +9,12 @@ app.use((req, res, next) => {
         req.body = JSON.parse(req['rawBody']);
         next();
     });
+});
+
+app.post('/code-challenge/', async (req, res) => {
+    res.send(
+        JSON.stringify(new CodeChallenge(req.body).transform())
+    );
 });
 
 app.listen(8888, async () => {
