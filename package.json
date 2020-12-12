@@ -1,0 +1,36 @@
+{
+    "name": "code-challenge",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Coding challenge for City of helsinki",
+    "author": "Aman Yadav",
+    "engines": {
+        "node": "10.x.x"
+    },
+    "main": "./dist/code-challenge/src/index.js",
+    "scripts": {
+        "clean": "rimraf ./dist",
+        "build": "npm run clean && tsc",
+        "start": "node 'dist/code-challenge/src/index.js'",
+        "start:dev": "ts-node 'src/index.ts'",
+        "serve": "nodemon -L -e ts,json -w src --signal SIGTERM -x 'npm run start:dev'"
+    },
+    "license": "ISC",
+    "keywords": [],
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.6",
+        "@types/node": "^13.13.4",
+        "@types/typescript": "^2.0.0",
+        "nodemon": "^2.0.3",
+        "nyc": "^15.0.1",
+        "rimraf": "^3.0.2",
+        "ts-loader": "^7.0.1",
+        "ts-node": "^8.9.1",
+        "typescript": "^3.8.3",
+        "typings": "^2.1 .1",
+        "watch": "^1.0.2"
+    }
+}
