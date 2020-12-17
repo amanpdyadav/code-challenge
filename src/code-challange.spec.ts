@@ -47,7 +47,7 @@ describe('Code challenge test', () => {
         expect(result).to.equal('Supercalifragilisticexpialidocious');
     });
 
-    it('death, famine, and pestilence -> Trunald Domp', async () => {
+    it('death, famine, and pestilence -> fath, deamine, pend astilence', async () => {
         const result = new CodeChallenge('death, famine, and pestilence').transform();
         expect(result).to.equal('fath, deamine, pend astilence');
     });

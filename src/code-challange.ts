@@ -48,8 +48,7 @@ export class CodeChallenge {
 
     // Transforms the text pairs
     transformTextPairs(pair: string[]) {
-        const fK = pair[0]; // First key
-        const sK = pair[1]; // Second key
+        const [fK, sK] = pair // Explode to get first and second key
 
         const fV = this.map[fK]; // First original value
         const sV = this.map[sK]; // Second original value

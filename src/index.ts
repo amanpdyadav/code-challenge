@@ -2,19 +2,15 @@ import * as express from 'express';
 import { CodeChallenge } from './code-challange';
 
 const app = express();
-app.use((req, res, next) => {
+
+app.post('/code-challenge/', async (req, res) => {
     req['rawBody'] = '';
     req.on('data', (chunk) => (req['rawBody'] += chunk));
     req.on('end', () => {
-        req.body = JSON.parse(req['rawBody']);
-        next();
+        const str = JSON.parse(req['rawBody']);
+        const transformedStr = new CodeChallenge(str).transform();
+        res.send(JSON.stringify(transformedStr));
     });
-});
-
-app.post('/code-challenge/', async (req, res) => {
-    res.send(
-        JSON.stringify(new CodeChallenge(req.body).transform())
-    );
 });
 
 app.listen(8888, async () => {
