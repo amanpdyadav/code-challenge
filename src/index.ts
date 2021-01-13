@@ -13,7 +13,7 @@ app.post('/code-challenge/', async (req, res) => {
     });
 });
 
-app.listen(8888, async () => {
+app.listen(8080, async () => {
     console.log(`App listening at http://localhost:8888`);
 });
 
